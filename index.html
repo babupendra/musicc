@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            text-align: center;
+            padding: 50px;
+        }
+    
+        #music-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="music-container">
+        <h1>My Music Page</h1>
+        <!-- Music player will go here -->
+        <!-- Inside the <div id="music-container"> -->
+<div id="audio-player">
+    <audio controls>
+        <source src="path-to-your-music-file.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+    </div>
+
+    <script>
+        var songs = ["song1.mp3", "song2.mp3", "song3.mp3"];
+        var currentSong = 0;
+        var audioPlayer = document.querySelector('audio');
+    
+        audioPlayer.addEventListener('ended', function() {
+            currentSong++;
+            if(currentSong >= songs.length) {
+                currentSong = 0;
+            }
+            audioPlayer.src = songs[currentSong];
+            audioPlayer.play();
+        });
+    </script>
+
+</body>
+</html>
